@@ -1,4 +1,4 @@
-import {investmentRepository} from '../repository/investment.repository'
+import {investmentRepository, investorInvestments} from '../repository/investment.repository'
 
 export const investmentResolvers = {
     Investment: {
@@ -8,7 +8,13 @@ export const investmentResolvers = {
     },
     Query: {
         investmentByName(_, args) {
-            return investmentRepository.filter(investors => investors.name === args.name)
+            return investmentRepository.filter(investment => investment.name === args.name)
+        }
+    },
+    Investor: {
+        investments(args) {
+            const investments = investorInvestments.find(investor => investor.investorId = args.id)
+            return investmentRepository.filter(investment => investments.investments.includes(investment.id))
         }
     }
 }

@@ -8,7 +8,7 @@ export const investmentTypeDefs = gql`
     type Investment @key(fields: "id") {
         id: String!
         name: String!
-        price: Int
+        price: Float
     }
     
     extend type Investor @key(fields: "id") {
