@@ -28,8 +28,8 @@ class App {
                     url,
                     // @ts-ignore
                     willSendRequest({request, context}) {
-                        request.http.headers.set('role', context.user.role)
-                        request.http.headers.set('token', context.user.token)
+                        request.http.headers.set('role', context['role'])
+                        request.http.headers.set('token', context['token'])
                     },
                 })
             },
